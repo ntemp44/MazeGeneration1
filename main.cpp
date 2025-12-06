@@ -40,7 +40,7 @@ public:
             for (int x = 0; x < m_width; x++) {
                 std::cout << m_board[y][x].getState();
             }
-            std::cout << "\n";
+            std::cout << std::endl;
         }
     }
     void generateMaze(int x, int y) {
@@ -51,7 +51,7 @@ public:
             int nextX = x + dir.first;
             int nextY = y + dir.second;
             if (nextX >= 0 && nextX < m_width && nextY >= 0 && nextY < m_height && m_board[nextX][nextY].getState() == char(219)){
-               m_board[y + dir.second / 2][x + dir.first / 2].setState(32);
+               m_board[x + dir.first / 2][y + dir.second / 2].setState(32);
                 system("cls");
                 displayMaze();
                 std::this_thread::sleep_for(std::chrono::milliseconds(100));
